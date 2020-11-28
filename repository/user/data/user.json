@@ -1,0 +1,15 @@
+[
+    {
+        "id": "927a7942-aec9-47bd-8ec9-5bec3fb86ba8",
+        "name": "Heiseinberg",
+        "nickname": "Say my name",
+        "mail": "pure@example.com",
+        "updatedAt": "2020-11-28T21:51:25.741Z"
+    },
+    {
+        "id": "b978b073-435c-4242-b646-d91c9eec9356",
+        "name": "Flora Guy-Coichard",
+        "nickname": "Flora",
+        "mail": "flora@example.com"
+    }
+]

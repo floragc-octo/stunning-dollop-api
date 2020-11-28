@@ -7,7 +7,8 @@
   "author": "FloraGC <fguycoichard@octo.com>, Simon Belbeoch <simon.belbeoch@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hapi/hapi": "^20.0.3"
+    "@hapi/hapi": "^20.0.3",
+    "uuid": "^8.3.1"
   },
   "scripts": {
     "start": "node main.js",

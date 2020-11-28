@@ -1,9 +1,15 @@
-const HealthcheckController = require('./healthcheck/controller')
+const { repositories} = require('../repository')
 
-const healthcheckController = new HealthcheckController()
+const HealthcheckController = require('./healthcheck/controller')
+const UserController = require('./user/controller')
+
+
+const healthcheckController = new HealthcheckController(repositories)
+const userController = new UserController(repositories)
 
 const controllers = {
-    healthcheckController
+    healthcheckController,
+    userController,
 }
 
 module.exports = { controllers }
