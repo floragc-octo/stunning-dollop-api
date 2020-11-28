@@ -1,4 +1,7 @@
 const Hapi = require('@hapi/hapi');
+const { createRoute } = require('./server/routes')
+const { controllers } = require('./controller')
+const routes = createRoute(controllers)
 
 const init = async () => {
 
@@ -7,14 +10,7 @@ const init = async () => {
         host: 'localhost'
     })
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
-
-            return h.response({});
-        }
-    });
+    routes.forEach((route) => server.route(route))
 
     await server.start()
     console.log('Server running on %s', server.info.uri)

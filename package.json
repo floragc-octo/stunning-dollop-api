@@ -1,7 +1,7 @@
 {
   "name": "stunning-dollop-api",
   "version": "0.0.1",
-  "description": "API for Stunning Dollo^p",
+  "description": "API for Stunning Dollop",
   "main": "main.js",
   "repository": "git@github.com:floragc-octo/stunning-dollop-api.git",
   "author": "FloraGC <fguycoichard@octo.com>, Simon Belbeoch <simon.belbeoch@gmail.com>",
