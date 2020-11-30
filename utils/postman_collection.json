@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "377b593a-fbb2-415e-a135-46a95450e938",
+		"name": "Stunning Dollop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "322033b9-a392-4f98-b2a0-c783e648ecb3",
+								"exec": [
+									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.globals.get(\"variable_key\");",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Default user exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_HOST}}/users/",
+							"host": [
+								"{{API_HOST}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get default user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3f4a3901-f5aa-4820-962b-b23808a43744",
+								"exec": [
+									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.globals.get(\"variable_key\");",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Default user exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.eql(default_user_id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
+							"host": [
+								"{{API_HOST}}"
+							],
+							"path": [
+								"users",
+								"{{DEFAULT_USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c33e5293-6538-428d-b8b0-d6542a2d65cd",
+								"exec": [
+									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.globals.get(\"variable_key\");",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Default user exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test user",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "petname",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "test@example.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_HOST}}/users/",
+							"host": [
+								"{{API_HOST}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bdec1fb7-450b-4cc8-b95a-e8002bd59279",
+								"exec": [
+									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.globals.get(\"variable_key\");",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Default user exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Heiseinberg",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "Say my name",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "pure@example.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
+							"host": [
+								"{{API_HOST}}"
+							],
+							"path": [
+								"users",
+								"{{DEFAULT_USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a user [TODO]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36d81d10-280a-4fb7-bb96-3fcbf80ed5c7",
+								"exec": [
+									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"pm.globals.get(\"variable_key\");",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Default user exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Heiseinberg",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "Say my name",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "pure@example.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_HOST}}/users/fa258c6f-a778-4239-b57b-ede506b22a37",
+							"host": [
+								"{{API_HOST}}"
+							],
+							"path": [
+								"users",
+								"fa258c6f-a778-4239-b57b-ede506b22a37"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "26117822-5e83-44be-913b-29f1bc22679e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8a1dad59-a3d6-487f-9ada-0cbd844cd21e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "13807b48-c8a3-493e-8d4f-491c82954891",
+			"key": "DEFAULT_USER_ID",
+			"value": "927a7942-aec9-47bd-8ec9-5bec3fb86ba8"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
