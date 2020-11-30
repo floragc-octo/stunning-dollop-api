@@ -105,3 +105,6 @@ dist
 
 # data
 user.json
+
+# IDE
+.idea

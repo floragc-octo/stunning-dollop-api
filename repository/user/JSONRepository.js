@@ -5,11 +5,12 @@ const { v4: generateUUID } = require('uuid')
 const currentDate = () => new Date()
 
 class JSONRepository {
-    constructor() {
+    constructor(config) {
         const buffer = fs.readFileSync(
             path.resolve(__dirname, "./data/user.json")
         )
         this.userList = JSON.parse(buffer.toString())
+        this.shouldSave = config.MOCK !== "true"
     }
     get(id) {
         return Promise.resolve(
@@ -25,7 +26,7 @@ class JSONRepository {
         const id = generateUUID()
         const generatedUser = { ...newUser, id, createdAt: currentDate(), updatedAt: currentDate() }
         this.userList.push(generatedUser)
-        fs.writeFileSync(path.resolve(__dirname, "./data/user.json"), JSON.stringify(this.userList))
+        this.save()
         return Promise.resolve(generatedUser)
     }
     delete(id) {
@@ -37,7 +38,7 @@ class JSONRepository {
             return Promise.reject(new Error('NOT FOUND'))
         }
         this.userList = userListToSave
-        fs.writeFileSync(path.resolve(__dirname, "./data/user.json"), JSON.stringify(this.userList))
+        this.save()
         return Promise.resolve(true)
     }
     update(id, user) {
@@ -51,10 +52,14 @@ class JSONRepository {
             return newUserList;
         }, []);
         this.userList = userListToSave
-        fs.writeFileSync(path.resolve(__dirname, "./data/user.json"), JSON.stringify(this.userList))
+        this.save()
         return Promise.resolve(userUpdated)
     }
-
+    save() {
+        if(this.shouldSave) {
+         fs.writeFileSync(path.resolve(__dirname, "./data/user.json"), JSON.stringify(this.userList))
+        }
+    }
 }
 
 module.exports = { JSONRepository }

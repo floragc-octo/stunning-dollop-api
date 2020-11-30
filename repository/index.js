@@ -1,6 +1,6 @@
 const  { JSONRepository: UserRepository } = require('./user/JSONRepository')
-
-const userRepository = new UserRepository()
+const config = process.env
+const userRepository = new UserRepository(config)
 
 const repositories = {
     userRepository,

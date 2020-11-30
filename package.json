@@ -10,13 +10,14 @@
     "@hapi/hapi": "^20.0.0",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.0.1",
+    "dotenv": "^8.2.0",
     "hapi-swagger": "14.0.0",
     "joi": "17.x",
     "uuid": "^8.3.1"
   },
   "scripts": {
-    "start": "node main.js",
-    "serve": "nodemon main.js"
+    "start": "node -r ./config.js main.js",
+    "serve": "NODE_ENV=dev nodemon -r ./config.js main.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
