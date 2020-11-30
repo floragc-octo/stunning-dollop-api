@@ -1,5 +1,5 @@
 module.exports = class UserController {
-    constructor({ userRepository }) { 
+    constructor({ userRepository }) {
         this.userRepository = userRepository
     }
 
@@ -19,7 +19,7 @@ module.exports = class UserController {
     async delete(request, h) {
         try {
             const { params: {id} } = request
-            await this.userRepository.delete(id)         
+            await this.userRepository.delete(id)
             return h.response().code(204)
             } catch(error) {
             if(error.message === "Not implemented yet") return h.response().code(501)
@@ -35,7 +35,7 @@ module.exports = class UserController {
             if(error.message === "Not implemented yet") return h.response().code(501)
         }
     }
-    
+
     async create(request, h) {
         try {
             const { payload: newUser } = request
@@ -48,7 +48,6 @@ module.exports = class UserController {
 
     async update(request, h) {
         try {
-            const { params: {id} } = request
             const { payload: userValues } = request
             const updatedUser = await this.userRepository.update(id, userValues)
             return h.response(updatedUser).code(200)
