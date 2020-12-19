@@ -45,8 +45,8 @@ jobs:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - name: run tests:unit
-        run: yarn test
+      - name: run unit testing
+        run: yarn test:unit
       - name: Archive unit coverage
         uses: actions/upload-artifact@v2
         with:
