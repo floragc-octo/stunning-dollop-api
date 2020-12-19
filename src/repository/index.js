@@ -3,7 +3,7 @@ const config = process.env
 const userRepository = new UserRepository(config)
 
 const repositories = {
-    userRepository,
+	userRepository,
 }
 
 module.exports = { repositories }

@@ -1,9 +1,9 @@
 module.exports = class HealthcheckController {
-    constructor() { }
+	constructor() { }
 
-    async get(request, h) {
-        return h.response(
-            { status: "OK" }
-        )
-    }
+	async get(request, h) {
+		return h.response(
+			{ status: 'OK' }
+		)
+	}
 }
