@@ -22,9 +22,13 @@
   "scripts": {
     "serve": "NODE_ENV=dev nodemon -r ./config.js main.js",
     "start": "node -r ./config.js main.js",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "test:unit": "NODE_ENV=test jest --config unit.jest.config.js",
+    "test:unit:mutate": "NODE_ENV=test stryker run unit.stryker.config.js"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^4.2.0",
+    "@stryker-mutator/jest-runner": "^4.2.0",
     "cross-env": "^7.0.3",
     "faker": "^5.1.0",
     "jest": "^26.6.3",
