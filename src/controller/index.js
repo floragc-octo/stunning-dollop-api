@@ -8,8 +8,8 @@ const healthcheckController = new HealthcheckController(repositories)
 const userController = new UserController(repositories)
 
 const controllers = {
-    healthcheckController,
-    userController,
+	healthcheckController,
+	userController,
 }
 
 module.exports = { controllers }
