@@ -47,5 +47,11 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: run tests:unit
         run: yarn test
+      - name: Archive unit coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: |
+            build/reports
         env:
           CI: true
