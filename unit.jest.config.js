@@ -10,10 +10,8 @@ module.exports = {
 
   coveragePathIgnorePatterns: ["/node_modules/"],
   collectCoverageFrom: [
-    '**/*.js',
-    '!**/build/**',
-    '!**/*.config.js',
-    '!config.js',
+    'src/**/*.js',
+    '!build/**',
   ],
   coverageProvider: "v8",
 
