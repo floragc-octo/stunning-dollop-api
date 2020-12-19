@@ -6,7 +6,7 @@
 module.exports = {
   clearMocks: true,
   collectCoverage: true,
-  coverageDirectory: "build/reports/coverage",
+  coverageDirectory: "build/reports/unit/coverage",
 
   coveragePathIgnorePatterns: ["/node_modules/"],
   collectCoverageFrom: [
