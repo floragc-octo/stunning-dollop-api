@@ -1,5 +1,5 @@
 const UserController = require('./controller')
-const { random } = require('Faker')
+const { random } = require('faker')
 const defaultID = random.uuid()
 
 const makeHTTPRequest = (id) => ({ params: { id } })
