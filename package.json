@@ -16,10 +16,14 @@
     "uuid": "^8.3.1"
   },
   "scripts": {
+    "serve": "NODE_ENV=dev nodemon -r ./config.js main.js",
     "start": "node -r ./config.js main.js",
-    "serve": "NODE_ENV=dev nodemon -r ./config.js main.js"
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "faker": "^5.1.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6"
   }
 }

@@ -10,7 +10,7 @@ module.exports = class UserController {
             if(!user){
                 return h.response().code(404)
             }
-            return h.response(user)
+            return h.response(user).code(200)
         } catch(error) {
             if(error.message === "Not implemented yet") return h.response().code(501)
         }
@@ -30,7 +30,7 @@ module.exports = class UserController {
     async list(request, h) {
         try {
             const userList = await this.userRepository.list()
-            return h.response(userList)
+            return h.response(userList).code(200)
         } catch(error) {
             if(error.message === "Not implemented yet") return h.response().code(501)
         }
