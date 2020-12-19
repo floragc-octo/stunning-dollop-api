@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  build:
+  install_dependencies:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -16,7 +16,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
+      - name: run tests
+        run: yarn test
         env:
           CI: true
