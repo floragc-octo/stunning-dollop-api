@@ -28,7 +28,8 @@
     "docker:start": "docker run -p 3000:3000 -d stunning-dollop/api",
     "docker:stop": "docker stop $(docker ps -q --filter ancestor=stunning-dollop/api)",
     "test:unit": "cross-env NODE_ENV=test jest --config unit.jest.config.js",
-    "test:unit:mutate": "cross-env NODE_ENV=test npx stryker-cli run unit.stryker.config.js"
+    "test:unit:mutate": "cross-env NODE_ENV=test npx stryker-cli run unit.stryker.config.js",
+    "test:e2e": "cross-env NODE_ENV=test newman run documentations/postman_collection.json $(<newman.config)"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^4.2.0",
@@ -37,6 +38,8 @@
     "eslint": "^7.16.0",
     "faker": "^5.1.0",
     "jest": "^26.6.3",
+    "newman": "^5.2.1",
+    "newman-reporter-html": "^1.0.5",
     "nodemon": "^2.0.6"
   }
 }
