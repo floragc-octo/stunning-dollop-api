@@ -1,287 +1,421 @@
 {
 	"info": {
-		"_postman_id": "377b593a-fbb2-415e-a135-46a95450e938",
+		"_postman_id": "83b91c55-0188-47b8-a541-99a22b341cca",
 		"name": "Stunning Dollop",
+		"description": "Stunning Dollop API postman collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Users",
+			"name": "tests",
 			"item": [
 				{
-					"name": "List all users",
-					"event": [
+					"name": "Users",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "322033b9-a392-4f98-b2a0-c783e648ecb3",
-								"exec": [
-									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"pm.globals.get(\"variable_key\");",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Default user exists\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{API_HOST}}/users/",
-							"host": [
-								"{{API_HOST}}"
-							],
-							"path": [
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get default user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "3f4a3901-f5aa-4820-962b-b23808a43744",
-								"exec": [
-									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"pm.globals.get(\"variable_key\");",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Default user exists\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.id).to.eql(default_user_id);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
-							"host": [
-								"{{API_HOST}}"
-							],
-							"path": [
-								"users",
-								"{{DEFAULT_USER_ID}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create a new User",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c33e5293-6538-428d-b8b0-d6542a2d65cd",
-								"exec": [
-									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"pm.globals.get(\"variable_key\");",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Default user exists\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"name": "List all users",
+							"event": [
 								{
-									"key": "name",
-									"value": "test user",
-									"type": "text"
-								},
-								{
-									"key": "nickname",
-									"value": "petname",
-									"type": "text"
-								},
-								{
-									"key": "mail",
-									"value": "test@example.com",
-									"type": "text"
+									"listen": "test",
+									"script": {
+										"id": "c41b987b-744f-4c0a-bb87-c2c6a5e611b5",
+										"exec": [
+											"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"pm.globals.get(\"variable_key\");",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Default user exists\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
-						},
-						"url": {
-							"raw": "{{API_HOST}}/users/",
-							"host": [
-								"{{API_HOST}}"
 							],
-							"path": [
-								"users",
-								""
-							]
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_HOST}}/users/",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get default user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2c8dfbb2-6b89-4abb-9317-bbf976b4ccfb",
+										"exec": [
+											"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"pm.globals.get(\"variable_key\");",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Default user exists\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.id).to.eql(default_user_id);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										"{{DEFAULT_USER_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc94baa8-d62b-4520-8691-13d4505db1bc",
+										"exec": [
+											"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"pm.globals.get(\"variable_key\");",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"pm.test(\"user is created\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.id).not.to.eql(undefined);",
+											"});",
+											"",
+											"pm.test(\"user id is different than default user id\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.id).not.to.eql(default_user_id);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "test user",
+											"type": "text"
+										},
+										{
+											"key": "nickname",
+											"value": "petname",
+											"type": "text"
+										},
+										{
+											"key": "mail",
+											"value": "test@example.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_HOST}}/users/",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "45ec6529-9a5d-4d06-b0e5-8e6f1f94ba12",
+										"exec": [
+											"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"User is updated\", function () {",
+											"    const {name, nickname, mail} = pm.response.json();",
+											"    pm.expect(name).to.eql(\"Heiseinberg\");",
+											"    pm.expect(nickname).to.eql(\"Say my name\");",
+											"    pm.expect(mail).to.eql(\"pure@example.com\");",
+											"});",
+											"pm.test(\"User id is protected and not updated\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.id).to.eql(default_user_id);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Heiseinberg",
+											"type": "text"
+										},
+										{
+											"key": "nickname",
+											"value": "Say my name",
+											"type": "text"
+										},
+										{
+											"key": "mail",
+											"value": "pure@example.com",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "$guid",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										"{{DEFAULT_USER_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an existing user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d33587f-1357-4bd1-883b-7f2a2907277f",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"pm.globals.get(\"variable_key\");",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9d6138b1-0bde-4ea5-99f1-8503daad061a",
+										"exec": [
+											"pm.sendRequest({",
+											"    url: pm.environment.get(\"API_HOST\")+'/users/',",
+											"    method: \"POST\",",
+											"      \"body\": {",
+											"        \"mode\": \"urlencoded\",",
+											"        \"urlencoded\": [",
+											"        {",
+											"            \"key\": \"name\",",
+											"            \"value\": \"test user\",",
+											"            \"type\": \"text\"",
+											"        },",
+											"        {",
+											"            \"key\": \"nickname\",",
+											"            \"value\": \"petname\",",
+											"            \"type\": \"text\"",
+											"        },",
+											"        {",
+											"            \"key\": \"mail\",",
+											"            \"value\": \"test@example.com\",",
+											"            \"type\": \"text\"",
+											"        }",
+											"    ]",
+											"    },",
+											"}, function (err, res) {",
+											"    pm.environment.set(\"CURRENT_USER_ID\", res.json().id);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_HOST}}/users/{{CURRENT_USER_ID}}",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										"{{CURRENT_USER_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an unexisting user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6f3c4f6e-5d03-4cfe-bc71-56f0b694a2f9",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"pm.globals.get(\"variable_key\");",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "43730a06-68e2-4468-a823-59a4f44ac9fc",
+										"exec": [
+											"const uuid = require('uuid')",
+											"const generateUUID = () => uuid.v4()",
+											"const MAX_DEPTH = 10",
+											"",
+											"const checkExistance = (uuid = generateUUID(), lastDepth = 0) => {",
+											"    const depth = lastDepth + 1",
+											"    if(depth >= MAX_DEPTH) {",
+											"        throw new Error('max retry exedeed')",
+											"    }",
+											"    pm.sendRequest({",
+											"        url: `${pm.environment.get(\"API_HOST\")}/users/${uuid}`,",
+											"        method: \"GET\"",
+											"        }, function (err, res) {",
+											"            if(res.code === 404) {",
+											"                pm.environment.set(\"CURRENT_USER_ID\", uuid);",
+											"                return",
+											"            }",
+											"            return checkExistance(generateUUID(), depth)",
+											"    });",
+											"}",
+											"checkExistance()"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_HOST}}/users/{{CURRENT_USER_ID}}",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"path": [
+										"users",
+										"{{CURRENT_USER_ID}}"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Edit user",
+					],
 					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e7586e82-c6dd-4ba5-908f-8a47a0459bd1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "bdec1fb7-450b-4cc8-b95a-e8002bd59279",
+								"id": "449dbda5-2b8a-4d2d-9e70-f40859e1c795",
+								"type": "text/javascript",
 								"exec": [
-									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
+									"const time = parseInt(pm.variables.get(\"TIME_TO_ANSWER\"));",
 									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"pm.globals.get(\"variable_key\");",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Default user exists\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
+									"pm.test(`Response time is less than ${time}ms`, function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(time);",
 									"});"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Heiseinberg",
-									"type": "text"
-								},
-								{
-									"key": "nickname",
-									"value": "Say my name",
-									"type": "text"
-								},
-								{
-									"key": "mail",
-									"value": "pure@example.com",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{API_HOST}}/users/{{DEFAULT_USER_ID}}",
-							"host": [
-								"{{API_HOST}}"
-							],
-							"path": [
-								"users",
-								"{{DEFAULT_USER_ID}}"
-							]
-						}
-					},
-					"response": []
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "automated tested routes",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4f73e459-41b6-4ec3-8a22-9befe64ffc7e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				},
 				{
-					"name": "Delete a user [TODO]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "36d81d10-280a-4fb7-bb96-3fcbf80ed5c7",
-								"exec": [
-									"const default_user_id = pm.variables.get(\"DEFAULT_USER_ID\");",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
-									"});",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"pm.globals.get(\"variable_key\");",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"pm.test(\"Default user exists\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.find((user) => user.id === default_user_id)).not.to.eql(undefined);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "Heiseinberg",
-									"type": "text"
-								},
-								{
-									"key": "nickname",
-									"value": "Say my name",
-									"type": "text"
-								},
-								{
-									"key": "mail",
-									"value": "pure@example.com",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{API_HOST}}/users/fa258c6f-a778-4239-b57b-ede506b22a37",
-							"host": [
-								"{{API_HOST}}"
-							],
-							"path": [
-								"users",
-								"fa258c6f-a778-4239-b57b-ede506b22a37"
-							]
-						}
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"id": "9d7f7f18-13df-43ad-93c9-f95fef37b21b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -291,7 +425,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "26117822-5e83-44be-913b-29f1bc22679e",
+				"id": "bcf8626f-4e92-43d8-a9fb-a6d9460091ff",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -301,7 +435,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8a1dad59-a3d6-487f-9ada-0cbd844cd21e",
+				"id": "0c6505b5-eaee-496a-957d-efcd4211815d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -311,9 +445,14 @@
 	],
 	"variable": [
 		{
-			"id": "13807b48-c8a3-493e-8d4f-491c82954891",
+			"id": "1a5970de-a994-4073-ac06-39b08cd4768f",
 			"key": "DEFAULT_USER_ID",
 			"value": "927a7942-aec9-47bd-8ec9-5bec3fb86ba8"
+		},
+		{
+			"id": "043d14f0-181b-43e3-8af3-afbc9eff9f95",
+			"key": "CURRENT_USER_ID",
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
