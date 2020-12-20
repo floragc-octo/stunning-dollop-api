@@ -3,7 +3,7 @@ FROM node:14
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install --production --frozen-lockfile --check-files
+RUN yarn install --production
 
 COPY main.js .
 COPY config.js .

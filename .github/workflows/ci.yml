@@ -81,7 +81,7 @@ jobs:
       - name: run postman testing
         run: yarn test:e2e
       - name: stop docker
-        run: yarn docket:stop
+        run: yarn docker:stop
       - name: Archive unit coverage
         uses: actions/upload-artifact@v2
         with:
@@ -90,3 +90,24 @@ jobs:
             build/reports
         env:
           CI: true
+
+  run_mutation_testing:
+    needs: install_dependencies
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Install
+        run: |
+         yarn install
+      - name: Run Stryker
+        run: yarn test:unit:mutate:ci
