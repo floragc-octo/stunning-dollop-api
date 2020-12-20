@@ -1,0 +1,25 @@
+name: mutation testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  core:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Install & Build
+        run: |
+          yarn install
+      - name: Run Stryker
+        run: yarn test:unit:mutate:ci
